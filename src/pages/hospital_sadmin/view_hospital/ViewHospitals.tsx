@@ -211,10 +211,11 @@ function ViewHospitals() {
           </div>
           <div>
             <Select
-              sx={{ height: 30, backgroundColor: "white" }}
+              sx={{ height: 35, backgroundColor: "white", borderRadius: '30px',color:"blue"}}
               value={selectedCity}
               onChange={handleCityChange}
               variant="outlined"
+              
             >
               {cityOptions.map((city) => (
                 <MenuItem key={city.value} value={city.value}>
@@ -232,7 +233,7 @@ function ViewHospitals() {
               style={{
                 backgroundColor: "white",
                 marginLeft: "2rem",
-                marginTop: "50px",
+                marginTop: "110px",
                 width: "65vw",
                 padding: "50px",
                 borderRadius: "30px",

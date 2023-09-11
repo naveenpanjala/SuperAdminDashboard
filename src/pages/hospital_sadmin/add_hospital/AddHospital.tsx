@@ -10,6 +10,7 @@ import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Grid from "@mui/material/Grid";
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import { Select, SelectChangeEvent } from "@mui/material";
 
 const cityOptions: { value: string; label: string }[] = [
@@ -111,6 +112,7 @@ function AddHospital() {
                 padding: "30px",
                 borderRadius: "30px",
                 width: "35vw",
+                marginTop:"6rem"
               }}
             >
               <Grid container spacing={2}>
@@ -267,6 +269,9 @@ function AddHospital() {
               </Grid>
             </form>
           </div>
+          <div style={{ marginLeft: '45rem', marginTop:"25rem"}}>
+    <LocalHospitalIcon style={{ fontSize: '150px', color: 'blue' }} />
+  </div>
         </div>
       </div>
     </>
