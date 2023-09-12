@@ -26,7 +26,7 @@ const DoughnutChart = () => {
     const legendSize = 12;
 
     return (
-      <g transform={`translate(60, 260)`}>
+      <g transform={`translate(30, 280)`}>
         {data.map((item, index) => (
           <g
             key={item.x}
@@ -51,10 +51,10 @@ const DoughnutChart = () => {
   return (
     <div >
       {display ? (
-        <svg viewBox="0 20 400 400">
+        <svg viewBox="0 20 400 800">
           <VictoryPie
             standalone={false}
-            width={400}
+            width={370}
             height={290}
             data={data}
             innerRadius={0}

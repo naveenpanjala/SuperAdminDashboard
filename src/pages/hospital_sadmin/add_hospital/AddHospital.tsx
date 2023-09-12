@@ -10,8 +10,9 @@ import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Grid from "@mui/material/Grid";
-import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import { Select, SelectChangeEvent } from "@mui/material";
+import Lottie from "lottie-react";
+import hospital from "./hospitalGif.json";
 
 const cityOptions: { value: string; label: string }[] = [
   { value: "SelectCity", label: "Select City" },
@@ -103,17 +104,9 @@ function AddHospital() {
       </div>
       <div className={super_admin_styles.main_info_right}>
         <div className={styles.container}>
-          <div>
             <form
               onSubmit={handleSubmit}
-              style={{
-                backgroundColor: "white",
-                marginLeft: "6rem",
-                padding: "30px",
-                borderRadius: "30px",
-                width: "35vw",
-                marginTop:"6rem"
-              }}
+              className={styles.add_hospital}
             >
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={12}>
@@ -250,6 +243,7 @@ function AddHospital() {
                     required
                   />
                 </Grid>
+                
                 <Grid item xs={12}>
                   <Button
                     type="submit"
@@ -259,21 +253,20 @@ function AddHospital() {
                       width: "120px",
                       marginTop: "16px",
                       borderRadius: "20px",
-                      marginLeft:"80%"
+                      marginLeft: "80%",
                     }}
-                    
                   >
                     Save
                   </Button>
                 </Grid>
               </Grid>
             </form>
+            <div>
+            <Lottie  animationData={hospital} style={{ width: "150%", marginLeft:"34rem",marginTop:"20rem"}} />
+            </div>
           </div>
-          <div style={{ marginLeft: '45rem', marginTop:"25rem"}}>
-    <LocalHospitalIcon style={{ fontSize: '150px', color: 'blue' }} />
-  </div>
         </div>
-      </div>
+     
     </>
   );
 }

@@ -4,9 +4,9 @@ import super_admin_styles from "./../../../component/sidebar/super_admin_styles.
 import search_icon from "./../../../../public/search_icon.png";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useNavigate } from "react-router-dom";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
-import VisibilityIcon from "@mui/icons-material/Visibility";
+// import EditIcon from "@mui/icons-material/Edit";
+// import DeleteIcon from "@mui/icons-material/Delete";
+// import VisibilityIcon from "@mui/icons-material/Visibility";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -14,13 +14,14 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { SelectChangeEvent } from "@mui/material";
-import ViewHospitalHubs from "./ViewHospitalHubs";
+// import ViewHospitalHubs from "./ViewHospitalHubs";
 import TablePagination from "@mui/material/TablePagination";
+
 
 const cityOptions: { value: string; label: string }[] = [
   { value: "SelectCity", label: "Select City" },
@@ -40,111 +41,102 @@ function ViewHospitals() {
   const handleCityChange = (event: SelectChangeEvent<typeof selectedCity>) => {
     setSelectedCity(event.target.value);
   };
+  const handleHospitalClick = (hospitalName:string) => {
+  // Navigate to the hospital details route with hospital name as a parameter
+  navigate(`/viewHospitals/${(hospitalName)}`);
 
+  };
   const hospitalData = [
     {
       hospitalName: "Apollo Hospital",
       city: "Hyderabad",
       noOfHubs: 4,
       noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
+      addedOn: "31 Mar 2023",
+    },
+    {
+      hospitalName: "Apollo Hospital ",
+      city: "Hyderabad",
+      noOfHubs: 4,
+      noOfDevices: 327,
+      addedOn: "31 Mar 2023",
     },
     {
       hospitalName: "Apollo Hospital",
       city: "Hyderabad",
       noOfHubs: 4,
       noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
+      addedOn: "31 Mar 2023",
     },
     {
       hospitalName: "Apollo Hospital",
       city: "Hyderabad",
       noOfHubs: 4,
       noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
+      addedOn: "31 Mar 2023",
     },
     {
       hospitalName: "Apollo Hospital",
       city: "Hyderabad",
       noOfHubs: 4,
       noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
+      addedOn: "31 Mar 2023",
     },
     {
       hospitalName: "Apollo Hospital",
       city: "Hyderabad",
       noOfHubs: 4,
       noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
+      addedOn: "31 Mar 2023",
     },
     {
       hospitalName: "Apollo Hospital",
       city: "Hyderabad",
       noOfHubs: 4,
       noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
+      addedOn: "31 Mar 2023",
     },
     {
       hospitalName: "Apollo Hospital",
       city: "Hyderabad",
       noOfHubs: 4,
       noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
+      addedOn: "31 Mar 2023",
     },
     {
       hospitalName: "Apollo Hospital",
       city: "Hyderabad",
       noOfHubs: 4,
       noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
+      addedOn: "31 Mar 2023",
     },
     {
       hospitalName: "Apollo Hospital",
       city: "Hyderabad",
       noOfHubs: 4,
       noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
+      addedOn: "31 Mar 2023",
     },
     {
       hospitalName: "Apollo Hospital",
       city: "Hyderabad",
       noOfHubs: 4,
       noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
+      addedOn: "31 Mar 2023",
     },
     {
       hospitalName: "Apollo Hospital",
       city: "Hyderabad",
       noOfHubs: 4,
       noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
+      addedOn: "31 Mar 2023",
     },
     {
       hospitalName: "Apollo Hospital",
       city: "Hyderabad",
       noOfHubs: 4,
       noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
-    },
-    {
-      hospitalName: "Apollo Hospital",
-      city: "Hyderabad",
-      noOfHubs: 4,
-      noOfDevices: 327,
-      purchasedDate: "31 Mar 2023",
-      status: "Active",
+      addedOn: "31 Mar 2023",
     },
   ];
 
@@ -165,17 +157,17 @@ function ViewHospitals() {
     setPage(0);
   };
 
-  const [popupOpen, setPopupOpen] = useState(false);
-  const [selectedHospital, setSelectedHospital] = useState(null);
+  // const [popupOpen, setPopupOpen] = useState(false);
+  // const [selectedHospital, setSelectedHospital] = useState(null);
 
-  const handleVisibilityClick = (hospital: any) => {
-    setSelectedHospital(hospital);
-    setPopupOpen(true);
-  };
+  // const handleVisibilityClick = (hospital: any) => {
+  //   setSelectedHospital(hospital);
+  //   setPopupOpen(true);
+  // };
 
-  const handleClosePopup = () => {
-    setPopupOpen(false);
-  };
+  // const handleClosePopup = () => {
+  //   setPopupOpen(false);
+  // };
 
   const startIndex = page * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
@@ -211,11 +203,15 @@ function ViewHospitals() {
           </div>
           <div>
             <Select
-              sx={{ height: 35, backgroundColor: "white", borderRadius: '30px',color:"blue"}}
+              sx={{
+                height: 35,
+                backgroundColor: "white",
+                borderRadius: "30px",
+                color: "blue",
+              }}
               value={selectedCity}
               onChange={handleCityChange}
               variant="outlined"
-              
             >
               {cityOptions.map((city) => (
                 <MenuItem key={city.value} value={city.value}>
@@ -234,58 +230,36 @@ function ViewHospitals() {
                 backgroundColor: "white",
                 marginLeft: "2rem",
                 marginTop: "110px",
-                width: "65vw",
+                width: "68vw",
                 padding: "50px",
                 borderRadius: "30px",
               }}
             >
               <div>
-                <TableContainer component={Paper}  style={{ boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.1)' }}>
+                <TableContainer
+                  component={Paper}
+                  style={{ boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)" }}
+                >
                   <Table>
                     <TableHead>
                       <TableRow>
                         <TableCell></TableCell>
-                        <TableCell
-                          style={{
-                            textAlign: "center",
-                            verticalAlign: "middle",
-                          }}
-                        >
+                        <TableCell>
                           <b>Hospital Name</b>
                         </TableCell>
-                        <TableCell
-                          style={{
-                            textAlign: "center",
-                            verticalAlign: "middle",
-                          }}
-                        >
+                        <TableCell>
                           <b>City</b>
                         </TableCell>
-                        <TableCell
-                          style={{
-                            textAlign: "center",
-                            verticalAlign: "middle",
-                          }}
-                        >
+                        <TableCell>
                           <b>No. of Hubs</b>
                         </TableCell>
-                        <TableCell
-                          style={{
-                            textAlign: "center",
-                            verticalAlign: "middle",
-                          }}
-                        >
+                        <TableCell>
                           <b>No. of Devices</b>
                         </TableCell>
-                        <TableCell
-                          style={{
-                            textAlign: "center",
-                            verticalAlign: "middle",
-                          }}
-                        >
-                          <b>Purchased Date</b>
+                        <TableCell>
+                          <b>Added On</b>
                         </TableCell>
-                        <TableCell
+                        {/* <TableCell
                           style={{
                             textAlign: "center",
                             verticalAlign: "middle",
@@ -300,12 +274,16 @@ function ViewHospitals() {
                           }}
                         >
                           <b>Action</b>
-                        </TableCell>
+                        </TableCell> */}
                       </TableRow>
                     </TableHead>
                     <TableBody>
                       {displayedData.map((hospital, index) => (
-                        <TableRow key={index}>
+                             <TableRow
+                             key={index}
+                             onClick={() => handleHospitalClick(hospital.hospitalName)}
+                             style={{ cursor: "pointer" }}
+                           >
                           <TableCell
                             style={{
                               textAlign: "center",
@@ -316,47 +294,12 @@ function ViewHospitals() {
                               style={{ color: "red", fontSize: 36 }}
                             />
                           </TableCell>
-                          <TableCell
-                            style={{
-                              textAlign: "center",
-                              verticalAlign: "middle",
-                            }}
-                          >
-                            {hospital.hospitalName}
-                          </TableCell>
-                          <TableCell
-                            style={{
-                              textAlign: "center",
-                              verticalAlign: "middle",
-                            }}
-                          >
-                            {hospital.city}
-                          </TableCell>
-                          <TableCell
-                            style={{
-                              textAlign: "center",
-                              verticalAlign: "middle",
-                            }}
-                          >
-                            {hospital.noOfHubs}
-                          </TableCell>
-                          <TableCell
-                            style={{
-                              textAlign: "center",
-                              verticalAlign: "middle",
-                            }}
-                          >
-                            {hospital.noOfDevices}
-                          </TableCell>
-                          <TableCell
-                            style={{
-                              textAlign: "center",
-                              verticalAlign: "middle",
-                            }}
-                          >
-                            {hospital.purchasedDate}
-                          </TableCell>
-                          <TableCell
+                          <TableCell>{hospital.hospitalName}</TableCell>
+                          <TableCell>{hospital.city}</TableCell>
+                          <TableCell>{hospital.noOfHubs}</TableCell>
+                          <TableCell>{hospital.noOfDevices}</TableCell>
+                          <TableCell>{hospital.addedOn}</TableCell>
+                          {/* <TableCell
                             style={{
                               textAlign: "center",
                               verticalAlign: "middle",
@@ -378,7 +321,7 @@ function ViewHospitals() {
                               onClick={() => handleVisibilityClick(hospital)}
                               style={{ cursor: "pointer" }}
                             />
-                          </TableCell>
+                          </TableCell> */}
                         </TableRow>
                       ))}
                     </TableBody>
@@ -394,13 +337,13 @@ function ViewHospitals() {
                 onPageChange={(_, newPage) => handleChangePage(newPage)}
                 onRowsPerPageChange={handleChangeRowsPerPage}
               />
-              {selectedHospital && (
+              {/* {selectedHospital && (
                 <ViewHospitalHubs
                   open={popupOpen}
                   handleClose={handleClosePopup}
                   hospital={selectedHospital}
                 />
-              )}
+              )} */}
             </div>
           </div>
         </div>

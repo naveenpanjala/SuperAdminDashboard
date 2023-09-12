@@ -122,6 +122,12 @@ function SuperAdminSidebar(): JSX.Element {
               iconDark={add_patient}
               iconLight={addpatient_light}
             />
+             <Buttons
+              linkName={"Tickets"}
+              name={"Tickets"}
+              iconDark={add_patient}
+              iconLight={addpatient_light}
+            />
             <div className={styles.line}></div>
             <div style={{ marginTop: "1rem" }}></div>
             <div
