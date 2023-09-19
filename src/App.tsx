@@ -7,6 +7,7 @@ import Tickets from "./pages/hospital_sadmin/tickets/Tickets";
 import HospitalDetails from "./pages/hospital_sadmin/view_hospital/HospitalDetails";
 import  TicketDetails  from "./pages/hospital_sadmin/tickets/TicketDetails";
 import { AddHospitalDetails } from "./pages/hospital_sadmin/add_hospital/AddHospitalDetails";
+import { AddAdmin } from "./pages/hospital_sadmin/view_hospital/AddAdmin";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="addHospital/form" element={<AddHospitalDetails/>}></Route>
           <Route path="viewHospitals" element={<ViewHospitals />} />
           <Route path="viewHospitals/:index" element={<HospitalDetails />} />
+          <Route path="viewHospitals/:index/add-admin" element={<AddAdmin />} />
           <Route path="tickets" element={<Tickets/>} />
           <Route path="tickets/ticket/:ticketId" element={<TicketDetails />} />
         </Route>

@@ -1,8 +1,8 @@
-import styles from "./AddHospitalDetails.module.scss";
+import styles from "./../add_hospital/AddHospitalDetails.module.scss";
 import form_1_icon from "./../../../../public/form_1_icon.gif";
-import dummy_icon from "./../../../../public/dummy_pic_icon.png"
-import Form from "./Form";
-export const AddHospitalDetails = () => {
+import dummy_icon from "./../../../../public/dummy_pic_icon.png";
+import Form from "./../add_hospital/Form";
+export const AddAdmin = () => {
   return (
     <div className={styles.container}>
       <div className={styles.container_formRight}>
@@ -28,5 +28,5 @@ export const AddHospitalDetails = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -6,7 +6,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Hubs from "./Hubs";
 import Devices from "./Devices";
-
+import PurchaseList from "./PurchaseList";
+import { AdminList } from "./AdminList";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -38,18 +39,22 @@ function a11yProps(index: number) {
 }
 
 export default function BasicTabs() {
-    const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(0);
 
-    const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
-      };
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
 
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs   value={value}  onChange={handleChange}  aria-label="basic tabs example">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+        >
           <Tab
-            component={(props:any) => (
+            component={(props: any) => (
               <Button
                 variant="contained"
                 {...props}
@@ -73,7 +78,7 @@ export default function BasicTabs() {
             }}
           />
           <Tab
-            component={(props:any) => (
+            component={(props: any) => (
               <Button
                 variant="contained"
                 {...props}
@@ -97,7 +102,7 @@ export default function BasicTabs() {
             }}
           />
           <Tab
-            component={(props:any) => (
+            component={(props: any) => (
               <Button
                 variant="contained"
                 {...props}
@@ -120,18 +125,47 @@ export default function BasicTabs() {
               },
             }}
           />
+           <Tab
+            component={(props: any) => (
+              <Button
+                variant="contained"
+                {...props}
+                sx={{
+                  marginRight: "12px",
+                  "&:hover": {
+                    backgroundColor: "white",
+                  },
+                }}
+              />
+            )}
+            label="Admin List"
+            {...a11yProps(3)}
+            sx={{
+              marginRight: "12px",
+              "&.Mui-selected": {
+                borderRadius: "4px",
+                background: "#1977F3",
+                color: "white",
+              },
+            }}
+          />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Purchase List
+        <br />
+        <PurchaseList />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <br/>
-       <Hubs/>
+        <br />
+        <Hubs />
       </TabPanel>
       <TabPanel value={value} index={2}>
-      <br/>
-      <Devices />
+        <br />
+        <Devices />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <br />
+      <AdminList />
       </TabPanel>
     </Box>
   );

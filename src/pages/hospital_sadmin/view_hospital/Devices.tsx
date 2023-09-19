@@ -1,6 +1,9 @@
+import { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 import styles from "./ViewHospitalHubs.module.scss";
 import device_icon from "./../../../../public/cardiology_icon.png";
 
@@ -18,13 +21,41 @@ const devices: Device[] = [
   { deviceId: 6, deviceName: "YNVC-A23-012", deviceStatus: "Offline" },
 ];
 function Devices() {
+  const [filter, setFilter] = useState("all");
+
+  const handleFilterChange = (event: SelectChangeEvent<string>) => {
+    setFilter(event.target.value as string);
+  };
+  const filteredDevices = devices.filter((device) => {
+    if (filter === "all") return true;
+    return device.deviceStatus === filter;
+  });
+
   return (
-    <div>
-      <b>List of Devices</b>
-      <br />
-      <br />
-      <div className={styles.container}>
-        {devices.map((device) => (
+    <>
+    <div style={{ display: "flex", alignItems: "center",marginBottom:"20px" }}>
+     <p style={{ margin: 0 }}><b>List of Devices</b></p>
+      <div style={{ marginLeft: "auto" }}>
+        <Select
+          sx={{
+            borderRadius: "20px",
+            height: "40px",
+            width: "100px",
+            textAlign: "center",
+          }}
+          value={filter}
+          onChange={handleFilterChange}
+        >
+          <MenuItem value="all">All</MenuItem>
+          <MenuItem value="Online">Online</MenuItem>
+          <MenuItem value="Offline">Offline</MenuItem>
+        </Select>
+      </div>
+      
+     
+    </div>
+    <div className={styles.container}>
+        {filteredDevices.map((device) => (
           <Card
             key={device.deviceId}
             sx={{ borderRadius: "20px", width: "12vw" }}
@@ -65,7 +96,7 @@ function Devices() {
           </Card>
         ))}
       </div>
-    </div>
+    </>
   );
 }
 

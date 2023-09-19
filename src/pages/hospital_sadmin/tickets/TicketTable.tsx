@@ -162,9 +162,9 @@ const TicketTable: React.FC = () => {
 
   return (
     <div>
-      <FormControl
-        style={{ display: "flex", flexDirection: "column", marginLeft: "86%" }}
-      >
+      <div  style={{ display: "flex", justifyContent: "flex-end"}}>
+
+      <FormControl>
         <Select
           sx={{ height: "40px", padding: "10px", borderRadius: "20px" }}
           value={statusFilter}
@@ -179,7 +179,9 @@ const TicketTable: React.FC = () => {
         </Select>
         <br />
       </FormControl>
-      <TableContainer component={Paper}   style={{ boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)" }}>
+      </div>
+
+      <TableContainer component={Paper}  >
         <Table >
           <TableHead>
             <TableRow sx={{height:"65px"}}>

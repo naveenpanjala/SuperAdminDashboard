@@ -1,8 +1,12 @@
+import { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import styles from "./ViewHospitalHubs.module.scss";
 import hubIcon from "./../../../../public/device_icon.jpeg";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+
 
 interface Hub {
   HubId: number;
@@ -20,13 +24,41 @@ const staticHubs: Hub[] = [
 ];
 
 function Hubs() {
+
+  const [filter, setFilter] = useState("all");
+  const handleFilterChange = (event: SelectChangeEvent<string>) => {
+    setFilter(event.target.value as string);
+  };
+  const filteredHubs = staticHubs.filter((hub) => {
+    if (filter === "all") return true;
+    return hub.Status === filter;
+  });
   return (
+    <>
+      <div style={{ display: "flex", alignItems: "center",marginBottom:"20px" }}>
+     <p style={{ margin: 0 }}><b>List of Hubs</b></p>
+      <div style={{ marginLeft: "auto" }}>
+        <Select
+          sx={{
+            borderRadius: "20px",
+            height: "40px",
+            width: "100px",
+            textAlign: "center",
+          }}
+          value={filter}
+          onChange={handleFilterChange}
+        >
+          <MenuItem value="all">All</MenuItem>
+          <MenuItem value="Online">Online</MenuItem>
+          <MenuItem value="Offline">Offline</MenuItem>
+        </Select>
+      </div>
+      
+     
+    </div>
     <div>
-    <b>List of Hubs</b>
-    <br/>
-    <br/>
     <div className={styles.container}>
-      {staticHubs.map((hub) => (
+    {filteredHubs.map((hub) => (
         <Card key={hub.HubId} sx={{ borderRadius: "20px", width: "12vw" }}>
           <CardContent>
             <div
@@ -59,6 +91,7 @@ function Hubs() {
       ))}
     </div>
     </div>
+    </>
   );
 }
 
