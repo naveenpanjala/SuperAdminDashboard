@@ -1,13 +1,12 @@
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import IconButton from "@mui/material/IconButton";
 import styles from "./HospitalDetails.module.scss";
 import { useEffect } from "react";
 import BasicTabs from "./Tab";
 
-interface HospitalDetailsProps {}
 
-function HospitalDetails(props: any) {
+function HospitalDetails() {
   const navigate = useNavigate();
   const { hospitalName } = useParams<{ hospitalName: string }>();
 
@@ -17,7 +16,6 @@ function HospitalDetails(props: any) {
   };
 
   useEffect(() => {
-    // You can fetch additional data or perform any necessary actions here
   }, [hospitalName]);
   return (
     <div className={styles.container}>

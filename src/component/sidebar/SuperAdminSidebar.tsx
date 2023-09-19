@@ -123,7 +123,7 @@ function SuperAdminSidebar(): JSX.Element {
               iconLight={addpatient_light}
             />
              <Buttons
-              linkName={"Tickets"}
+              linkName={"tickets"}
               name={"Tickets"}
               iconDark={add_patient}
               iconLight={addpatient_light}

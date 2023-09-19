@@ -55,21 +55,28 @@ function Super_Admin_Dashboard() {
               className={styles.container_cards_item + " " + styles.card_violet}
             >
               <img src={total_patient_icon} alt="" className="" />
-              <h1 className="">12</h1>
+              <h2 className="">12</h2>
               <p className="">Total Hospitals</p>
+            </div>
+            <div
+              className={styles.container_cards_item + " " + styles.card_pink}
+            >
+              <img src={total_patient_icon} alt="" className="" />
+              <h2 className="">15</h2>
+              <p className="">Total patients</p>
             </div>
             <div
               className={styles.container_cards_item + " " + styles.card_orange}
             >
               <img src={total_patient_icon} alt="" className="" />
-              <h1 className="">15</h1>
-              <p className="">Total patients</p>
+              <h2 className="">15</h2>
+              <p className="">Total Staffs</p>
             </div>
           </div>
-          <div className={styles.container_piechart}>
+          {/* <div className={styles.container_piechart}>
             <div className={styles.container_piechart_header}>Cities</div>
             <PieChartWithLabels />
-          </div>
+          </div> */}
           <div className={styles.container_title }>Recently Added Hospitals</div>
           <div
             className={styles.container_widz + " " + styles.container_widz_1}

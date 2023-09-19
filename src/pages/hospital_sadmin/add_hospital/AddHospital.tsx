@@ -34,15 +34,16 @@ function AddHospital() {
     useState<string>("SelectCountry");
   const [selectedState, setSelectedState] = useState<string>("SelectState");
   const [hospitalInfo, setHospitalInfo] = useState({
-    name: "",
+    hospitalName: "",
+    hospitalGroup: "",
+    address: "",
     country: "",
     state: "",
-    address: "",
+    city: "",
     pincode: "",
-    userId: "",
-    password: "",
-    devices: "",
-    hubs: "",
+    phone: "",
+    email: "",
+    website: "",
   });
 
   // const handleSearchTextChange = (
@@ -69,6 +70,10 @@ function AddHospital() {
       ...prevInfo,
       [name]: value,
     }));
+  };
+
+  const handleNext = () => {
+    navigate('/addHospital/form');
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -104,169 +109,165 @@ function AddHospital() {
       </div>
       <div className={super_admin_styles.main_info_right}>
         <div className={styles.container}>
-            <form
-              onSubmit={handleSubmit}
-              className={styles.add_hospital}
-            >
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={12}>
-                  <TextField
-                    label="Name"
-                    variant="outlined"
-                    name="name"
-                    value={hospitalInfo.name}
-                    onChange={handleInputChange}
-                    fullWidth
-                    required
-                  />
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                  <FormControl fullWidth variant="outlined">
-                    <InputLabel>Country</InputLabel>
-                    <Select
-                      name="country"
-                      label="country"
-                      value={selectedCountry}
-                      onChange={handleCountryChange}
-                      required
-                    >
-                      {countryOptions.map((country) => (
-                        <MenuItem key={country.value} value={country.value}>
-                          {country.label}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                  <FormControl fullWidth variant="outlined">
-                    <InputLabel>State</InputLabel>
-                    <Select
-                      name="state"
-                      label="State"
-                      value={selectedState}
-                      onChange={handleStateChange}
-                      required
-                    >
-                      {stateOptions.map((state) => (
-                        <MenuItem key={state.value} value={state.value}>
-                          {state.label}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                  <FormControl fullWidth variant="outlined">
-                    <InputLabel>City</InputLabel>
-                    <Select
-                      name="city"
-                      label="City"
-                      value={selectedCity}
-                      onChange={handleCityChange}
-                      required
-                    >
-                      {cityOptions.map((city) => (
-                        <MenuItem key={city.value} value={city.value}>
-                          {city.label}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item xs={8}>
-                  <TextField
-                    label="Address"
-                    variant="outlined"
-                    name="address"
-                    value={hospitalInfo.address}
-                    onChange={handleInputChange}
-                    fullWidth
-                    required
-                  />
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                  <TextField
-                    label="Pincode"
-                    variant="outlined"
-                    name="pincode"
-                    value={hospitalInfo.pincode}
-                    onChange={handleInputChange}
-                    fullWidth
-                    required
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12}>
-                  <TextField
-                    label="User ID"
-                    variant="outlined"
-                    name="userId"
-                    value={hospitalInfo.userId}
-                    onChange={handleInputChange}
-                    fullWidth
-                    required
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12}>
-                  <TextField
-                    label="Password"
-                    variant="outlined"
-                    type="password"
-                    name="password"
-                    value={hospitalInfo.password}
-                    onChange={handleInputChange}
-                    fullWidth
-                    required
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    label="No. of Devices"
-                    variant="outlined"
-                    type="number"
-                    name="devices"
-                    value={hospitalInfo.devices}
-                    onChange={handleInputChange}
-                    fullWidth
-                    required
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    label="No. of Hubs"
-                    variant="outlined"
-                    type="number"
-                    name="hubs"
-                    value={hospitalInfo.hubs}
-                    onChange={handleInputChange}
-                    fullWidth
-                    required
-                  />
-                </Grid>
-                
-                <Grid item xs={12}>
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    style={{
-                      width: "120px",
-                      marginTop: "16px",
-                      borderRadius: "20px",
-                      marginLeft: "80%",
-                    }}
-                  >
-                    Save
-                  </Button>
-                </Grid>
+          <form onSubmit={handleSubmit} className={styles.add_hospital}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={12}>
+                <TextField
+                  label="Hospital Name"
+                  variant="outlined"
+                  name="hospitalName"
+                  value={hospitalInfo.hospitalName}
+                  onChange={handleInputChange}
+                  fullWidth
+                  // required
+                />
               </Grid>
-            </form>
-            <div>
-            <Lottie  animationData={hospital} style={{ width: "150%", marginLeft:"34rem",marginTop:"20rem"}} />
-            </div>
+              <Grid item xs={12} sm={12}>
+                <TextField
+                  label="Hospital Group"
+                  variant="outlined"
+                  name="hospitalGroup"
+                  value={hospitalInfo.hospitalGroup}
+                  onChange={handleInputChange}
+                  fullWidth
+                  // required
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  label="Address"
+                  variant="outlined"
+                  name="address"
+                  value={hospitalInfo.address}
+                  onChange={handleInputChange}
+                  fullWidth
+                  multiline
+                  rows={3}
+                />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <FormControl fullWidth variant="outlined">
+                  <InputLabel>Country</InputLabel>
+                  <Select
+                    name="country"
+                    label="country"
+                    value={selectedCountry}
+                    onChange={handleCountryChange}
+                    required
+                  >
+                    {countryOptions.map((country) => (
+                      <MenuItem key={country.value} value={country.value}>
+                        {country.label}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <FormControl fullWidth variant="outlined">
+                  <InputLabel>State</InputLabel>
+                  <Select
+                    name="state"
+                    label="State"
+                    value={selectedState}
+                    onChange={handleStateChange}
+                    // required
+                  >
+                    {stateOptions.map((state) => (
+                      <MenuItem key={state.value} value={state.value}>
+                        {state.label}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <FormControl fullWidth variant="outlined">
+                  <InputLabel>City</InputLabel>
+                  <Select
+                    name="city"
+                    label="City"
+                    value={selectedCity}
+                    onChange={handleCityChange}
+                    // required
+                  >
+                    {cityOptions.map((city) => (
+                      <MenuItem key={city.value} value={city.value}>
+                        {city.label}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  label="Pincode"
+                  variant="outlined"
+                  name="pincode"
+                  value={hospitalInfo.pincode}
+                  onChange={handleInputChange}
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12} sm={8}>
+                <TextField
+                  label="Phone Number"
+                  variant="outlined"
+                  name="phone"
+                  value={hospitalInfo.phone}
+                  onChange={handleInputChange}
+                  fullWidth
+                />
+              </Grid>
+              <Grid item xs={12} sm={12}>
+                <TextField
+                  label="Email"
+                  variant="outlined"
+                  name="email"
+                  value={hospitalInfo.email}
+                  onChange={handleInputChange}
+                  fullWidth
+                  // required
+                />
+              </Grid>
+              <Grid item xs={12} sm={12}>
+                <TextField
+                  label="Website"
+                  variant="outlined"
+                  name="website"
+                  value={hospitalInfo.website}
+                  onChange={handleInputChange}
+                  fullWidth
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  onClick={handleNext}
+                  color="primary"
+                  style={{
+                    // width: "120px",
+                    // marginTop: "16px",
+                    // borderRadius: "20px",
+                    marginLeft: "80%",
+                  }}
+                >
+                  Next
+                </Button>
+              </Grid>
+            </Grid>
+          </form>
+          <div>
+            <Lottie
+              animationData={hospital}
+              style={{ width: "130%", marginLeft: "38rem", marginTop: "20rem" }}
+            />
           </div>
         </div>
-     
+      </div>
     </>
   );
 }
