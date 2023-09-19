@@ -29,7 +29,7 @@ const TicketTable: React.FC = () => {
   const [filteredData, setFilteredData] = useState<Ticket[]>([]);
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [page, setPage] = useState(0);
-  const [allRows, setAllRows] = useState(false);
+  const [, setAllRows] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const ticketData: Ticket[] = [
     {
@@ -157,6 +157,8 @@ const TicketTable: React.FC = () => {
   const handleRowClick = (ticketId: number) => {
     navigate(`/tickets/ticket/${ticketId}`);
   };
+
+  
 
   return (
     <div>

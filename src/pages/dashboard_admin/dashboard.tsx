@@ -1,5 +1,5 @@
 import styles from "./dashboard2.module.scss";
-import PieChartWithLabels from "./piechart";
+// import PieChartWithLabels from "./piechart";
 import total_patient_icon from "./../../../public/total_patient_icon.png";
 import super_admin_styles from "./../../component/sidebar/super_admin_styles.module.scss";
 import search_icon from "./../../../public/search_icon.png";

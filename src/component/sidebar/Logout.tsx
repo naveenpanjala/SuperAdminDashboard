@@ -13,7 +13,7 @@ type Logoutpros = {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-function Logout({ open, setOpen }: Logoutpros) {
+function Logout({  setOpen }: Logoutpros) {
   // const [open, setOpen] = useState(false);
   const [, removeCookie] = useCookies(["user"]);
   const navigate = useNavigate();
